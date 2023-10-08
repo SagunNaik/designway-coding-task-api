@@ -18,7 +18,7 @@ async function bootstrap() {
     .build();
 
   //disable Swaggeron production
-  if (process.env.NODE_ENV === "production") {
+  if (env.NODE_ENV === "production") {
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('api/docs', app, document);
   }
