@@ -22,6 +22,9 @@ export class Note {
     @Column({ type: "timestamptz", default: () => "CURRENT_TIMESTAMP" })
     createdOn: Date;
 
+    @Column({ type: "timestamptz", default: () => "CURRENT_TIMESTAMP" })
+    updatedOn: Date;
+
     @Column({ type: 'timestamptz', nullable: true })
     deletedOn: Date;
 

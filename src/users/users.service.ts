@@ -19,13 +19,18 @@ export class UsersService {
     try {
       const { age, email, firstName, gender, lastName, password, username, role } = createUserDto;
 
-      const user = await this.usersRepository.findOneBy(
+      const user = await this.usersRepository.findOne(
         {
-          email: email,
-          isActive: true
+          where: [
+            { isActive: true, email: email },
+            { isActive: true, username: username }
+          ],
+          select: {
+            id: true
+          }
         });
 
-      if (user) throw new HttpException("User already exist with same Email !!!", HttpStatus.AMBIGUOUS);
+      if (user) throw new HttpException("User already exist with same Email or Username !!!", HttpStatus.AMBIGUOUS);
 
       const hashedPassword = await hashString(password, saltOrRound);
 

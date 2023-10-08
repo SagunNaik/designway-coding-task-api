@@ -25,6 +25,7 @@ export class NotesService {
       newNote.title = title;
       newNote.isShared = isShared;
       newNote.createdOn = new Date();
+      newNote.updatedOn = new Date();
       newNote.isActive = true;
       newNote.userId = user.userId;
 
@@ -37,6 +38,7 @@ export class NotesService {
   }
 
   async findAll(user: IUserPayload): Promise<Note[]> {
+
     try {
       const notes = await this.notesRepository.find({
         where: [{ isActive: true, userId: user.userId }],
@@ -105,6 +107,7 @@ export class NotesService {
       noteTobeUpdated.content = content ? content : noteTobeUpdated.content;
       noteTobeUpdated.title = title ? title : noteTobeUpdated.title;
       noteTobeUpdated.isShared = isShared ? isShared : noteTobeUpdated.isShared;
+      noteTobeUpdated.updatedOn = new Date();
 
       return this.notesRepository.save(noteTobeUpdated)
 
