@@ -10,20 +10,20 @@ import { User } from './users/entities/user.entity';
 @Module({
   imports: [TypeOrmModule.forRoot({
     type: 'postgres',
-    host: 'localhost',
+    host: 'dpg-ckh62t212bvs73au8d5g-a',
     port: 5432,
-    password: 'admin',
-    username: 'postgres',
+    password: 'nrAVT8mFUVXZbdpP05Qn7bVgw5B4UJez',
+    username: 'notesapi_user',
     entities: [User],
-    database: 'notesDBDesignway',
+    database: 'notesapi',
     synchronize: true,
     logging: true,
     autoLoadEntities: true,
   }),
-   UsersModule,
-   NotesModule,
-   AuthModule],
+    UsersModule,
+    NotesModule,
+    AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
