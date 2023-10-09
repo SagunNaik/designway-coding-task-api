@@ -13,7 +13,7 @@ import { User } from './users/entities/user.entity';
     host: 'localhost',
     port: 5432,
     password: 'spidy@2211',
-    username: 'spidy',
+    username: 'postgres',
     entities: [User],
     database: 'notesdbdesignway',
     synchronize: true,
