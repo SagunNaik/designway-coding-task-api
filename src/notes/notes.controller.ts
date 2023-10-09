@@ -52,7 +52,6 @@ export class NotesController {
   }
 
   @Get("/shared/:id")
-  @Roles(Role.ADMIN, Role.USER)
   sharedNote(@Param('id') id: string, @User() user: IUserPayload) {
     return this.notesService.sharedNote(+id, user);
   }
