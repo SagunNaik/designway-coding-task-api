@@ -40,7 +40,13 @@ export class AuthService {
 
     const token = this.jwtService.sign(payload);
 
-    return { cm_token: token };
+    if (token) {
+
+      return { cm_token: token };
+    }
+    else {
+      throw new NotFoundException("User not found!!");
+    }
 
   }
 
